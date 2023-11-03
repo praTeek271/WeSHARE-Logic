@@ -1,0 +1,52 @@
+I have worked on many projects which vary from creating virtualbots for assistant to healthcare ,games development , Developing and Deployment of E-commercial websites which work with paytm and paypal paymenmt apis to enable payment in websites, to detecting objects and Medical Fraud detection using ml.
+
+
+*I thrive on continuous improvement and challenge myself by engaging in a 365-day coding challenge with InterviewBit questions.
+
+Coding is not just a hobby for me; it's a way of life. I look forward to expanding my knowledge and skills further as I continue my coding journey.
+
+
+
+
+
+* My interests extend to game development, web development, and text analysis. I've even ventured into the field of traffic and route prediction through the NAV_AI-Route-generator project.
+
+#-------------------------------------------------------------------------------------------
+
+
+
+I have been involved in a diverse range of projects and experiences in the same or similar field. My work includes creating virtual assistants, healthcare applications, and developing e-commerce websites with payment integrations for services like Paytm and PayPal.I have also explored the exciting domains of object detection and medical fraud detection using machine learning techniques.My interests extend to game development, web development, and text analysis, where I have actively contributed to various projects. One of my notable endeavors involved exploring traffic and route prediction through the NAV_AI-Route-generator project, utilizing backend processing, ML, and APIs.
+
+With coding being an integral part of my life, I am dedicated to further expanding my expertise and making a positive impact in the field. Each project has offered valuable learning experiences and the opportunity to grow as a developer.
+
+
+#-------------------------------------------------------------------------------------------
+
+
+
+
+Explain in brief the kind of work / projects / internships you have done in past in same / similar field
+*
+I have been involved in a diverse range of projects and experiences in the same or similar field. My work includes creating virtual assistants, healthcare applications, and developing e-commerce websites with payment integrations for services like Paytm and PayPal.I have also explored the exciting domains of object detection and medical fraud detection using machine learning techniques.My interests extend to game development, web development, and text analysis, where I have actively contributed to various projects. One of my notable endeavors involved exploring traffic and route prediction through the NAV_AI-Route-generator project, utilizing backend processing, ML, and APIs.I am dedicated to further expanding my expertise and making a positive impact in the field. Here are some main projects I have :
+* Adam: Your Personal Bot
+GitHub: https://github.com/praTeek271/Adam_the_VirtualBot
+Technologies: pyttsx3, Python, speech recognition, CI
+Description: Adam is a personal bot that utilizes the pyttsx3 Python module and the Windows 'sapi5' engine for text-to-speech conversion. It also uses the speech-to-text conversion API via the speech-Recognition module to convert audio chunks to text. Adam is ready to assist users with their daily essential needs on their PCs.
+
+*Treasure-Box: E-Commerce Website
+GitHub: https://github.com/praTeek271/Treasure_Box
+Technologies: HTML, CSS, JS, Django Framework, Database Management
+Description: Treasure-Box is an e-commerce website built using the Django framework and SQL Lite database. It makes use of static files and SQL queries for accessing and manipulating user and product data. The website features individual product views, an add-to-cart feature, and is designed as a template for further improvements.
+
+*Code Buster
+GitHub: https://github.com/praTeek271/code_buster_django
+Technologies: Django, Python, HTML, CSS, JS
+Description: Code Buster is an all-in-one college platform that offers comprehensive notes by subject teachers, limited file sharing space, and upcoming features like a payment gateway and personal notes. It is currently in Beta version.
+
+*NAV-AI: Traffic Generator
+GitHub: https://github.com/praTeek271/NAVAI−Route−generator
+Technologies: Python, Flask, HTML, CSS, API, ML, REST
+Description: NAV-AI is a project focusing on Traffic and Route Prediction. It uses backend processing, ML, and APIs to collect real-time data from open-source platforms.
+
+
+#---->    I have worked for Digital Heroes for 2 months on a Rs2000,  Stipend where I worked on connecting the backend of a todo-list with Google sheets which was then send on another deployed applications api server using Django Framework
