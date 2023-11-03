@@ -62,4 +62,5 @@ chunks = file_to_chunks(file_path, max_chunk_size)
 
 # Reassemble the chunks into a binary file
 output_file = file_path.split("/")[-1]
+
 chunks_to_file(2,file_path.split("/")[-1].split(".")[0],output_file)
