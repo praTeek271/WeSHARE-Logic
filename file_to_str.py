@@ -6,28 +6,26 @@ def calculate_chunk_size(file_size, max_chunk_size):
     # Calculate the number of chunks needed to cover the file
     num_chunks = (file_size + max_chunk_size - 1) // max_chunk_size
     
-    # Calculate adjusted chunk size for eac
+    # Calculate adjusted chunk size for each file
     chunk_size = file_size // num_chunks
     return chunk_size
 
 def file_to_chunks(file_path, max_chunk_size):
-    # Read the binary content of the file
+    # Read the file in binary format "rb"
     with open(file_path, 'rb') as file:
         binary_data = file.read()
 
     file_size = len(binary_data)
     print("file size\t",file_size)
     
-    # Calculate the adjusted chunk size based on file size
+    # use unique chunk size for each file , according to file size
     chunk_size = calculate_chunk_size(file_size, max_chunk_size)
 
     chunks = []
     for i in range(0, len(binary_data), chunk_size):
         chunk = binary_data[i:i + chunk_size]
-        # Convert each chunk into a base64-encoded string
         chunk_str = base64.b64encode(chunk).decode()
         chunks.append(chunk_str)
-    # return chunks
     packet_creator(chunks,file_path.split("/")[-1].split(".")[0])
     return len(chunk)
 
@@ -41,12 +39,7 @@ def chunks_to_file(lengt,name, output_file):
             y_data+= chunk_data
 
              
-    # for chunk_str in chunks:
-    #     # Convert the base64-encoded string back to binary
-    #     chunk = base64.b64decode(chunk_str)
-    #     binary_data += chunk
-
-    # # Save the binary data as a file
+    # convert the binary data back into file
     with open(output_file, 'wb') as file:
         file.write(binary_data)
 
@@ -63,11 +56,9 @@ file_path = './test_files/big-hero-6-2.png'
 max_chunk_size = 2024  # Set the maximum desired chunk size (bytes)
 
 # Break the file into chunks
-# chunks = file_to_chunks(file_path, max_chunk_size)
+chunks = file_to_chunks(file_path, max_chunk_size)
 # print(chunks)
 # print(len(chunks))
-
-# Transfer the chunks over the network (simulated here)
 
 # Reassemble the chunks into a binary file
 output_file = file_path.split("/")[-1]
