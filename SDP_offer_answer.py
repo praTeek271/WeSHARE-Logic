@@ -31,7 +31,8 @@ class SDPOfferAnswerGenerator:
             await self.pc.setLocalDescription(answer)
             self.answer = answer
         except Exception as e:
-
+            ErrorHndle().handle(mesaage="Local Offer Was Given")
+            answer="None"
         # print("SDP Answer:")
         # print(answer.sdp)
         return answer
@@ -82,7 +83,7 @@ class setup:
                 import pkg_resources
                 # print(1/0)
             except Exception as e:
-                ErrorHndle().handle()
+                ErrorHndle().handle(mesaage="Package ERROR",e=e)
                 sys.exit()
             finally:
                 installed = {pkg.key for pkg in pkg_resources.working_set}
@@ -100,7 +101,7 @@ class setup:
             # self.module_chk()
 
 class ErrorHndle:
-    def handle(self):
+    def handle(self,mesaage="",e=""):
         print("\n---------------------------------------------------------")
         print("The Define Pakage Module has encountered an ERROR.\nCheck the \'requirements.txt\'and your code file in the Project Folder\n")
         print("---------------------------------------------------------\n\n")
