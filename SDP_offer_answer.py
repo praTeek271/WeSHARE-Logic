@@ -25,10 +25,13 @@ class SDPOfferAnswerGenerator:
         return offer
 
     async def create_answer(self, offer):
-        await self.pc.setRemoteDescription(offer)
-        answer = await self.pc.createAnswer()
-        await self.pc.setLocalDescription(answer)
-        self.answer = answer
+        try:
+            await self.pc.setRemoteDescription(offer)
+            answer = await self.pc.createAnswer()
+            await self.pc.setLocalDescription(answer)
+            self.answer = answer
+        except Exception as e:
+
         # print("SDP Answer:")
         # print(answer.sdp)
         return answer
@@ -37,8 +40,15 @@ class SDPOfferAnswerGenerator:
         await self.pc.setRemoteDescription(answer)
 
     async def main(self):
+        await self.create_offer()
+        offer=self.offer
+        # await self.create_answer(offer)
+        # await self.add_answer(answer)
+        # answer=self.answer
+        print(f"---------->offer -----==\n",offer)
+        # print(f"---------->answer -----==\n",answer)
+        pass
         
-
 class setup:
     def __init__(self):
         self.printME()
@@ -72,13 +82,7 @@ class setup:
                 import pkg_resources
                 # print(1/0)
             except Exception as e:
-                print("\n---------------------------------------------------------")
-                print("The Define Pakage Module was not found on the internet.\nCheck the \'requirements.txt\' file in the Project Folder\n")
-                print("---------------------------------------------------------\n\n")
-                error=str(e)
-                with(open("error-log.dat",'a')) as er_file:
-                    er_file.write("{0}\t--\t{1}".format(error, datetime.datetime.now()))
-                    er_file.write("\n")
+                ErrorHndle().handle()
                 sys.exit()
             finally:
                 installed = {pkg.key for pkg in pkg_resources.working_set}
@@ -95,7 +99,16 @@ class setup:
             subprocess.check_call([python, '-m', 'pip', 'install', *self.missing], stdout=subprocess.DEVNULL)
             # self.module_chk()
 
-
+class ErrorHndle:
+    def handle(self):
+        print("\n---------------------------------------------------------")
+        print("The Define Pakage Module has encountered an ERROR.\nCheck the \'requirements.txt\'and your code file in the Project Folder\n")
+        print("---------------------------------------------------------\n\n")
+        error=str(e)
+        with(open("error-log.dat",'a')) as er_file:
+            er_file.write("{0}\t--\t{1}".format(error, datetime.datetime.now()))
+            er_file.write("\n")
+        pass
 if __name__ == '__main__':
     a=setup()
     app = SDPOfferAnswerGenerator()
