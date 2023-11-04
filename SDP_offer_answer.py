@@ -81,9 +81,9 @@ class setup:
             to_be_installed.update(modules)
             try :
                 import pkg_resources
-                # print(1/0)
-            except Exception as e:
-                ErrorHndle().handle(mesaage="Package ERROR",e=e)
+                print(1/0)
+            except Exception as errorV:
+                ErrorHndle().handle(mesaage="Package ERROR",e=errorV)
                 sys.exit()
             finally:
                 installed = {pkg.key for pkg in pkg_resources.working_set}
@@ -103,7 +103,7 @@ class setup:
 class ErrorHndle:
     def handle(self,mesaage="",e=""):
         print("\n---------------------------------------------------------")
-        print("The Define Pakage Module has encountered an ERROR.\nCheck the \'requirements.txt\'and your code file in the Project Folder\n")
+        print(f"The Define Pakage Module has encountered an ERROR.\nCheck the \'requirements.txt\'and your code file in the Project Folder\n\n---------->{str(e).upper()}<------")
         print("---------------------------------------------------------\n\n")
         error=str(e)
         with(open("error-log.dat",'a')) as er_file:
