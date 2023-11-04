@@ -12,16 +12,17 @@ class SDPOfferAnswerGenerator:
         self.answer = None
 
     async def create_offer(self):
-    # for vedio channel
-    #{
-        video_track = VideoStreamTrack()
-        self.pc.addTrack(video_track) 
-    #}
+        try:
+        # for vedio channel
+        #{
+            video_track = VideoStreamTrack()
+            self.pc.addTrack(video_track) 
+        #}
+        except Exception as e:
+            ErrorHndle().handle_and_exit(mesaage="Video Track creation ERROR",e=e)
         offer = await self.pc.createOffer()
         await self.pc.setLocalDescription(offer)
         self.offer = offer
-        # print("SDP Offer:")
-        # print(offer.sdp)
         return offer
 
     async def create_answer(self, offer):
@@ -33,21 +34,22 @@ class SDPOfferAnswerGenerator:
         except Exception as e:
             ErrorHndle().handle(mesaage="Local Offer Was Given")
             answer="None"
-        # print("SDP Answer:")
-        # print(answer.sdp)
         return answer
 
     async def add_answer(self, answer):
-        await self.pc.setRemoteDescription(answer)
+        try:
+            await self.pc.setRemoteDescription(answer)
+        except Exception as e:
+            ErrorHndle().handle(mesaage="Remote Offer Was Given")
 
     async def main(self):
         await self.create_offer()
         offer=self.offer
-        # await self.create_answer(offer)
-        # await self.add_answer(answer)
-        # answer=self.answer
+        await self.create_answer(offer)
+        answer=self.answer
+        await self.add_answer(answer)
         print(f"---------->offer -----==\n",offer)
-        # print(f"---------->answer -----==\n",answer)
+        print(f"---------->answer -----==\n",answer)
         pass
         
 class setup:
@@ -81,7 +83,7 @@ class setup:
             to_be_installed.update(modules)
             try :
                 import pkg_resources
-                print(1/0)
+                # print(1/0)
             except Exception as errorV:
                 ErrorHndle().handle(mesaage="Package ERROR",e=errorV)
                 sys.exit()
@@ -103,13 +105,18 @@ class setup:
 class ErrorHndle:
     def handle(self,mesaage="",e=""):
         print("\n---------------------------------------------------------")
-        print(f"The Define Pakage Module has encountered an ERROR.\nCheck the \'requirements.txt\'and your code file in the Project Folder\n\n---------->{str(e).upper()}<------")
+        print(f"The Define Pakage Module has encountered an ERROR.\nCheck the \'requirements.txt\'and your code file in the Project Folder\n{mesaage}\n---------->{str(e).upper()}<------")
         print("---------------------------------------------------------\n\n")
         error=str(e)
         with(open("error-log.dat",'a')) as er_file:
             er_file.write("{0}\t--\t{1}".format(error, datetime.datetime.now()))
             er_file.write("\n")
-        pass
+        
+    def handle_and_exit(self,mesaage="",e=""):
+        self.handle(mesaage="",e="")
+        sys.exit()
+
+
 if __name__ == '__main__':
     a=setup()
     app = SDPOfferAnswerGenerator()
