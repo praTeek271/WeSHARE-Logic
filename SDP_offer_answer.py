@@ -105,15 +105,17 @@ class setup:
 class ErrorHndle:
     def handle(self,mesaage="",e=""):
         print("\n---------------------------------------------------------")
-        print(f"The Define Pakage Module has encountered an ERROR.\nCheck the \'requirements.txt\'and your code file in the Project Folder\n{mesaage}\n---------->{str(e).upper()}<------")
+        print(f"The Define Pakage Module has encountered an ERROR.\nCheck the \'requirements.txt\'or your code file in the Project Folder\n{mesaage}\n---------->{str(e).upper()}<------")
         print("---------------------------------------------------------\n\n")
         error=str(e)
+        if error=="None" or error==" "or error=="":
+            error=f"None--{mesaage}"
         with(open("error-log.dat",'a')) as er_file:
             er_file.write("{0}\t--\t{1}".format(error, datetime.datetime.now()))
             er_file.write("\n")
         
     def handle_and_exit(self,mesaage="",e=""):
-        self.handle(mesaage="",e="")
+        self.handle(mesaage,e)
         sys.exit()
 
 
