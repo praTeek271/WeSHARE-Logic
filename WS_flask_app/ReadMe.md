@@ -6,7 +6,7 @@ This is a simple web application that allows users to upload and download SDP Da
 ## File Structure 
 
 ```
-my_app/
+WS_flask_app/
 |-- app/
 |   |-- __init__.py
 |   |-- routes/
