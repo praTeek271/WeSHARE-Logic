@@ -54,6 +54,7 @@ class SDPOfferAnswerGenerator:
         
 class setup:
     def __init__(self):
+        self.filepath="requirements.txt"
         self.printME()
         self.check_intr()
         self.module_chk()
@@ -76,7 +77,7 @@ class setup:
             print("connected")
             return True
 
-    def module_chk(self):
+    def module_chk(self,file=self.filepath):
         with(open('requirements.txt','r') )as file:
             to_be_installed=set()
             modules=set(str(file.read()).strip().split("\n"))
