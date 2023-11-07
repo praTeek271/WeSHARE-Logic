@@ -76,7 +76,7 @@ class setup:
 class ErrorHndle:
     def handle(self,mesaage="",e=""):
         print("\n---------------------------------------------------------")
-        print(f"The Define Pakage Module has encountered an ERROR.\nCheck the \'requirements.txt\'or your code file in the Project Folder\n{mesaage}\n---------->{str(e).upper()}<------")
+        print(f"The Define Pakage Module has encountered an ERROR.\nCheck the \'requirements file.txt\'or your code file in the Project Folder\n{mesaage}\n---------->{str(e).upper()}<------")
         print("---------------------------------------------------------\n\n")
         error=str(e)
         if error=="None" or error==" "or error=="":
