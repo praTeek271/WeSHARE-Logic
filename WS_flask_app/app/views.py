@@ -22,7 +22,11 @@ def home():
             user_key=fbhndl.create_user(user,password)
         except Exception as e:
             print(e)
-            return render_template('index.html',user_key=f"{user} ERROR or user Already Exists")
+            return render_template('index.html',user_key=f"ERROR due to {e}")
         return render_template('index.html',user_key=user_key)
 
     return render_template('index.html')
+
+
+# if __name__=="__main__":
+#     fbhndl=fbhndl().create_user("test","test123456")
