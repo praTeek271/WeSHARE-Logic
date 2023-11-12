@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <style>
       .container {
         outline: dashed 4px black;
@@ -14,10 +15,10 @@
         padding: 149px;
         justify-content: space-evenly;
       }
-      p{
+      p {
         justify-content: center;
-    display: flex;
-    font-size: 25px;
+        display: flex;
+        font-size: 25px;
       }
     </style>
   </head>
@@ -26,11 +27,12 @@
       <p>
         No page Found on <b><u>' http://localhost/{{endpoint}} '</u></b>
       </p>
-      <p>
-        <b><u>404</u></b> Page Not Found
+      <p style=" justify-content: space-evenly">
+        <b><u style="font-style:bold; font-size: 36px;">404</u></b> Page Not Found <box-icon name='ghost' type='solid' animation='tada' color='rgba(0,0,0,0.55)' ></box-icon>
       </p>
 
       <p><a href="/">Go to Home</a></p>
     </div>
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
   </body>
 </html>
