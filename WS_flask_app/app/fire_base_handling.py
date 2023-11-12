@@ -52,9 +52,17 @@ class fire_base_handling:
         passc=data['passcode']
         name=data['name']
         hgen=str(passc[:4])+name+str(passc[4:])
-        hgen_key=sha256(hgen.encode())
-        return hgen_key.hexdigest()
-
+        hgen_key=gen_key.encode(hgen)
+        return str(hgen_key)
+    
+class gen_key:
+    def encode(str,key="Helloworld"):
+        nonce=0
+        pad=sha256(str(nonce)+key).digest()
+        result=''
+        for i in range(32):
+            result+=chr(ord(pad[i])^ord(str[i]))
+    
 
 # if __name__=="__main__":
 #     print("This is a module. Run the main.py file")
