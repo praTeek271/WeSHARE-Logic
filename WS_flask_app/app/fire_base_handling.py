@@ -64,6 +64,10 @@ class gen_key:
             result+=chr(ord(pad[i])^ord(str[i]))
     
 
+
+
+#remove the comments to run this file as a standalone
+
 # if __name__=="__main__":
 #     print("This is a module. Run the main.py file")
 #     print(fire_base_handling().create_user('hi','1234567890'))
